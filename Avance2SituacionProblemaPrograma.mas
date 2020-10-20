@@ -1,0 +1,31 @@
+﻿
+// Main
+Loop, Jns updateStopVariable
+Input
+StoreI memoryAdress
+JnS moveMemoryAdress
+Load medition
+Skipcond 400
+Jump Loop
+Halt
+
+
+// Moves memory adress
+moveMemoryAdress, HEX 000
+Load memoryAdress
+Add  One
+Store memoryAdress
+JumpI moveMemoryAdress
+
+
+// Rest one to the medition variable
+updateStopVariable, HEX 000
+Load medition
+Subt One
+Store medition
+JumpI updateStopVariable
+
+
+memoryAdress, HEX 0600 // sTORAGE DIRECTION
+medition, DEC 50 // Number of sensor medition
+One, DEC 1 // For substracting and adding to the variables
