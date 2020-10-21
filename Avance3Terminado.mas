@@ -1,6 +1,7 @@
 ﻿// It only works if the average is an interger (if it has no decimal numbers).
 // Main
 Loop, Jns updateStopVariable
+JnS sumTotal
 Input
 StoreI memoryAdress
 Load sum
@@ -32,9 +33,6 @@ Store sum
 JumpI subSum
 
 
-
-
-
 // Moves memory adress
 moveMemoryAdress, HEX 000
 Load memoryAdress
@@ -50,6 +48,12 @@ Subt One
 Store medition
 JumpI updateStopVariable
 
+sumTotal, HEX 000
+Load total
+Add One
+Store total
+JumpI sumTotal
+
 
 memoryAdress, HEX 0600 // sTORAGE DIRECTION
 medition, DEC 50 // Number of sensor medition
@@ -57,4 +61,4 @@ One, DEC 1 // For substracting and adding to the variables
 sum, DEC 0
 
 average, DEC 0
-total, DEC 50
+total, DEC 0
